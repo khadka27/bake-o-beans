@@ -22,21 +22,15 @@ export default function FaviconSwitcher() {
     ) as HTMLLinkElement;
 
     if (favicon16) {
-      favicon16.href = isDark
-        ? "/favicon-16x16-dark.png"
-        : "/favicon-16x16.png";
+      favicon16.href ="/favicon-16x16.png";
     }
 
     if (favicon32) {
-      favicon32.href = isDark
-        ? "/favicon-32x32-dark.png"
-        : "/favicon-32x32.png";
+      favicon32.href ="/favicon-32x32.png";
     }
 
     if (appleTouchIcon) {
-      appleTouchIcon.href = isDark
-        ? "/apple-touch-icon-dark.png"
-        : "/apple-touch-icon.png";
+      appleTouchIcon.href ="/apple-touch-icon.png";
     }
 
     // Update theme color meta tag
