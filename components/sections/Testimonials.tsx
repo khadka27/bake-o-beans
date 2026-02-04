@@ -148,7 +148,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-16 sm:py-20 md:py-24 relative overflow-hidden"
+      className="py-14 sm:py-20 md:py-24 relative overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -163,7 +163,7 @@ export default function Testimonials() {
         <div className="absolute inset-0 bg-paper-50/90 dark:bg-coffee-900/90" />
       </div>
 
-      <div className="relative z-10 content-max px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12">
+      <div className="relative z-10 content-max px-5 sm:px-6 lg:px-8 mb-8 sm:mb-10 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -175,14 +175,14 @@ export default function Testimonials() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block text-clay-600 dark:text-clay-400 font-medium text-xs sm:text-sm uppercase tracking-wider mb-3"
+            className="inline-block text-clay-600 dark:text-clay-400 font-medium text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3"
           >
             Testimonials
           </motion.span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold mb-3 sm:mb-4 text-coffee-900 dark:text-paper-100">
             What Our Customers Say
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-coffee-700 dark:text-paper-300 text-sm sm:text-base max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
             Join hundreds of satisfied customers who love our coffee and
             pastries
           </p>
@@ -192,9 +192,11 @@ export default function Testimonials() {
       {/* Auto-scrolling testimonials */}
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-hidden"
+        className="flex gap-4 sm:gap-6 overflow-x-hidden px-4 sm:px-0"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
         style={{ scrollBehavior: "auto" }}
       >
         {duplicatedTestimonials.map((testimonial, index) => (
@@ -207,17 +209,17 @@ export default function Testimonials() {
               delay: (index % testimonials.length) * 0.05,
               duration: 0.5,
             }}
-            className="flex-shrink-0 w-80 sm:w-96"
+            className="shrink-0 w-72 sm:w-80 md:w-96"
           >
-            <Card className="h-full hover:shadow-xl transition-all duration-300 border-2 border-clay-300/50 dark:border-clay-600/50 hover:border-clay-400 dark:hover:border-clay-500 bg-white dark:bg-coffee-900 group">
-              <CardContent className="p-6 sm:p-8 flex flex-col h-full">
-                <div className="flex items-center gap-4 mb-4">
+            <Card className="h-full hover:shadow-xl active:shadow-lg transition-all duration-300 border-2 border-clay-300/50 dark:border-clay-600/50 hover:border-clay-400 dark:hover:border-clay-500 bg-white dark:bg-coffee-900 group">
+              <CardContent className="p-5 sm:p-6 md:p-8 flex flex-col h-full">
+                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <motion.div
-                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Avatar className="w-16 h-16 border-2 border-clay-400 dark:border-clay-500 shadow-lg group-hover:border-clay-500 dark:group-hover:border-clay-400 transition-colors">
-                      <AvatarFallback className="bg-clay-200 dark:bg-clay-800 text-clay-800 dark:text-clay-200 font-semibold text-lg">
+                    <Avatar className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-clay-400 dark:border-clay-500 shadow-lg group-hover:border-clay-500 dark:group-hover:border-clay-400 transition-colors">
+                      <AvatarFallback className="bg-clay-200 dark:bg-clay-800 text-clay-800 dark:text-clay-200 font-semibold text-sm sm:text-base md:text-lg">
                         {testimonial.name
                           .split(" ")
                           .map((n) => n[0])
@@ -225,15 +227,15 @@ export default function Testimonials() {
                       </AvatarFallback>
                     </Avatar>
                   </motion.div>
-                  <div className="flex-1">
-                    <p className="font-bold text-lg sm:text-xl mb-2 text-gray-900 dark:text-white drop-shadow-sm">
+                  <div className="flex-1 min-w-0">
+                    <p className="font-bold text-base sm:text-lg md:text-xl mb-1 sm:mb-2 text-coffee-900 dark:text-paper-100 drop-shadow-sm truncate">
                       {testimonial.name}
                     </p>
-                    <div className="flex gap-1">
+                    <div className="flex gap-0.5 sm:gap-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 fill-amber-400 text-amber-400"
+                          className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400"
                         />
                       ))}
                     </div>
@@ -242,13 +244,13 @@ export default function Testimonials() {
 
                 <div className="relative flex-grow">
                   <svg
-                    className="absolute -top-2 -left-2 w-8 h-8 text-clay-200 dark:text-clay-800 opacity-50"
+                    className="absolute -top-1 -left-1 sm:-top-2 sm:-left-2 w-6 h-6 sm:w-8 sm:h-8 text-clay-200 dark:text-clay-800 opacity-50"
                     fill="currentColor"
                     viewBox="0 0 32 32"
                   >
                     <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
                   </svg>
-                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base relative z-10 italic">
+                  <p className="text-coffee-700 dark:text-paper-300 leading-relaxed text-xs sm:text-sm md:text-base relative z-10 italic">
                     {testimonial.text}
                   </p>
                 </div>
@@ -258,14 +260,16 @@ export default function Testimonials() {
         ))}
       </div>
 
-      {/* Hover hint */}
+      {/* Touch hint - Mobile only */}
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.8 }}
-        className="text-center text-sm text-muted-foreground mt-8"
-      ></motion.p>
+        className="sm:hidden text-center text-xs text-muted-foreground mt-6 px-4"
+      >
+        Touch to pause scrolling
+      </motion.p>
     </section>
   );
 }

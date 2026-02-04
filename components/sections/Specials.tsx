@@ -1,51 +1,57 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 export default function Specials() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  
+
   const specials = [
     {
       id: 1,
-      name: 'Himalayan Blend Latte',
-      image: 'https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg?auto=compress&cs=tinysrgb&w=600',
+      name: "Himalayan Blend Latte",
+      image:
+        "https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id: 2,
-      name: 'Almond Croissant',
-      image: 'https://images.pexels.com/photos/3590401/pexels-photo-3590401.jpeg?auto=compress&cs=tinysrgb&w=600',
+      name: "Almond Croissant",
+      image:
+        "https://images.pexels.com/photos/3590401/pexels-photo-3590401.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id: 3,
-      name: 'Matcha Latte',
-      image: 'https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=600',
+      name: "Matcha Latte",
+      image:
+        "https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id: 4,
-      name: 'Tiramisu',
-      image: 'https://images.pexels.com/photos/6880219/pexels-photo-6880219.jpeg?auto=compress&cs=tinysrgb&w=600',
+      name: "Tiramisu",
+      image:
+        "https://images.pexels.com/photos/6880219/pexels-photo-6880219.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id: 5,
-      name: 'Cappuccino',
-      image: 'https://images.pexels.com/photos/1251175/pexels-photo-1251175.jpeg?auto=compress&cs=tinysrgb&w=600',
+      name: "Cappuccino",
+      image:
+        "https://images.pexels.com/photos/1251175/pexels-photo-1251175.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       id: 6,
-      name: 'Chocolate Cake',
-      image: 'https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=600',
+      name: "Chocolate Cake",
+      image:
+        "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
   ];
 
   return (
-    <section 
-      id="specials" 
-      className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden" 
+    <section
+      id="specials"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
       ref={ref}
     >
       {/* Background Image */}
@@ -83,7 +89,12 @@ export default function Specials() {
               key={special.id}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.6, type: 'spring', stiffness: 200 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+              }}
               className="flex flex-col items-center"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -91,7 +102,7 @@ export default function Specials() {
               {/* Circular Image Container */}
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden shadow-xl mb-4 cursor-pointer group"
               >
                 <Image
@@ -102,11 +113,15 @@ export default function Specials() {
                   sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, 224px"
                 />
                 <div className="absolute inset-0 bg-coffee-900/20 group-hover:bg-coffee-900/10 transition-colors duration-300" />
-                
+
                 {/* Ring effect on hover */}
                 <motion.div
                   initial={{ scale: 1, opacity: 0 }}
-                  animate={hoveredIndex === index ? { scale: 1.2, opacity: 0.3 } : { scale: 1, opacity: 0 }}
+                  animate={
+                    hoveredIndex === index
+                      ? { scale: 1.2, opacity: 0.3 }
+                      : { scale: 1, opacity: 0 }
+                  }
                   transition={{ duration: 0.4 }}
                   className="absolute inset-0 rounded-full border-4 border-clay-500"
                 />
@@ -115,12 +130,18 @@ export default function Specials() {
               {/* Name with Animation */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                animate={hoveredIndex === index ? { opacity: 1, y: 0 } : { opacity: 0.7, y: 0 }}
+                animate={
+                  hoveredIndex === index
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0.7, y: 0 }
+                }
                 transition={{ duration: 0.3 }}
                 className="text-center"
               >
                 <motion.h3
-                  animate={hoveredIndex === index ? { scale: 1.05 } : { scale: 1 }}
+                  animate={
+                    hoveredIndex === index ? { scale: 1.05 } : { scale: 1 }
+                  }
                   transition={{ duration: 0.3 }}
                   className="text-sm sm:text-base md:text-lg font-sans font-bold text-coffee-900 uppercase tracking-wide"
                 >

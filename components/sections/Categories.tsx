@@ -1,44 +1,63 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { Coffee } from 'lucide-react';
-import { useRef } from 'react';
-import Image from 'next/image';
+import { motion, useInView } from "framer-motion";
+import { Coffee } from "lucide-react";
+import { useRef } from "react";
+import Image from "next/image";
 
 export default function Categories() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const categories = [
     {
-      id: 'types-coffee',
-      label: 'TYPES OF COFFEE',
-      description: 'Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo',
-      image: '/images/h2-custom-icon-5.png',
+      id: "types-coffee",
+      label: "TYPES OF COFFEE",
+      description:
+        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+      image: "/images/h2-custom-icon-5.png",
     },
     {
-      id: 'bean-varieties',
-      label: 'BEAN VARIETIES',
-      description: 'Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo',
-      image: '/images/h2-custom-icon-6.png',
+      id: "bean-varieties",
+      label: "BEAN VARIETIES",
+      description:
+        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+      image: "/images/h2-custom-icon-6.png",
     },
     {
-      id: 'coffee-pastry',
-      label: 'COFFEE & PASTRY',
-      description: 'Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo',
-      image: '/images/h2-custom-icon-7.png',
+      id: "coffee-pastry",
+      label: "COFFEE & PASTRY",
+      description:
+        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+      image: "/images/h2-custom-icon-7.png",
     },
     {
-      id: 'coffee-to-go',
-      label: 'COFFEE TO GO',
-      description: 'Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo',
-      image: '/images/h2-custom-icon-8.png',
+      id: "coffee-to-go",
+      label: "COFFEE TO GO",
+      description:
+        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+      image: "/images/h2-custom-icon-8.png",
     },
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative" ref={ref}>
-      <div className="content-max px-4 sm:px-6 lg:px-8">
+    <section
+      className="py-14 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden"
+      ref={ref}
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/h1-bacground-img-1.jpg.webp"
+          alt="Categories background"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        {/* <div className="absolute inset-0 bg-white/95 dark:bg-paper-400" /> */}
+      </div>
+
+      <div className="content-max px-5 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,7 +68,7 @@ export default function Categories() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 text-coffee-900">
             OUR DELICIOUS OFFER
           </h2>
-          
+
           {/* Separator with Coffee Icon */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -57,55 +76,57 @@ export default function Categories() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="flex items-center justify-center gap-2 py-2 mb-4"
           >
-            <div className="w-12 sm:w-16 h-px bg-clay-500" />
+            <div className="w-10 sm:w-12 md:w-16 h-px bg-clay-500" />
             <div className="flex items-center justify-center">
               <Coffee className="w-5 h-5 sm:w-6 sm:h-6 text-clay-500" />
             </div>
-            <div className="w-12 sm:w-16 h-px bg-clay-500" />
+            <div className="w-10 sm:w-12 md:w-16 h-px bg-clay-500" />
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm sm:text-base md:text-lg text-coffee-700/80 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-coffee-800 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore
           </motion.p>
         </motion.div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+        {/* Categories Grid - 2 columns on mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
           {categories.map((category, index) => (
             <motion.div
               key={category.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-sm hover:bg-white/90 transition-all duration-300 shadow-md hover:shadow-lg"
             >
               {/* Icon Image */}
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                className="mb-6 relative w-20 h-20 sm:w-24 sm:h-24"
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="mb-4 sm:mb-6 relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 p-3 bg-clay-50 rounded-full"
               >
                 <Image
                   src={category.image}
                   alt={category.label}
                   fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) 80px, 96px"
+                  className="object-contain opacity-80 brightness-90 contrast-110"
+                  sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 112px"
                 />
               </motion.div>
-              
+
               {/* Title */}
-              <h3 className="text-base sm:text-lg md:text-xl font-sans font-bold uppercase mb-3 sm:mb-4 text-coffee-900 tracking-wide">
+              <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-sans font-bold uppercase mb-2 sm:mb-3 md:mb-4 text-coffee-900 tracking-wide leading-tight">
                 {category.label}
               </h3>
-              
-              {/* Description */}
-              <p className="text-xs sm:text-sm md:text-base text-coffee-700/70 leading-relaxed max-w-xs">
+
+              {/* Description - Hidden on small mobile, visible on larger screens */}
+              <p className="hidden sm:block text-xs sm:text-sm md:text-base text-coffee-800 leading-relaxed max-w-xs">
                 {category.description}
               </p>
             </motion.div>

@@ -1,85 +1,83 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 export default function About() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section 
-      id="about" 
-      className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
+    <section
+      id="about"
+      className="relative py-14 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
       ref={ref}
     >
-      {/* Background Image */}
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/h1-bacground-img-1.jpg.webp"
-          alt="Café background"
+          src="https://images.pexels.com/photos/1002740/pexels-photo-1002740.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Coffee brewing"
           fill
           className="object-cover"
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-coffee-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-coffee-900/95 via-coffee-900/85 to-coffee-900/70" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 content-max px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 sm:mb-8"
-          >
-            About the Café
-          </motion.h2>
-
+      <div className="relative z-10 content-max px-5 sm:px-6 lg:px-8">
+        <div className="max-w-2xl lg:max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="space-y-4 sm:space-y-5 mb-8 sm:mb-10"
+            transition={{ duration: 0.7 }}
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-paper-100 leading-relaxed font-light">
-              We're a neighborhood café serving freshly roasted coffee, handmade pastries, and warm conversations since 2022.
-            </p>
-            
-            <p className="text-base sm:text-lg md:text-xl text-paper-200/90 leading-relaxed">
-              What makes us special? Our premium, ethically sourced coffee beans roasted to perfection, 
-              our artisan bakery crafting fresh pastries daily, and our cozy, welcoming ambiance that brings people together.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            <Button
-              size="lg"
-              className="bg-paper-50 hover:bg-paper-100 text-coffee-900 px-8 py-6 text-base sm:text-lg rounded-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border-2 border-paper-50 group"
-              asChild
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-block text-clay-400 font-medium text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4"
             >
-              <Link href="#about">
-                Learn More About Us
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+              Our Story
+            </motion.span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight">
+              Where Every Cup <br className="hidden sm:block" />
+              <span className="text-clay-400">Tells a Story</span>
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-paper-200 leading-relaxed mb-6 sm:mb-8 max-w-xl">
+              At Bake O Beans, we believe coffee is more than a drink—it's an
+              experience. Nestled in the heart of Pokhara, our café combines
+              locally sourced beans with artisan brewing techniques to create
+              moments of pure bliss.
+            </p>
+            <p className="text-xs sm:text-sm md:text-base text-paper-300 leading-relaxed mb-8 sm:mb-10 max-w-lg">
+              From our signature roasts to freshly baked pastries, every item is
+              crafted with passion and care. Join us in celebrating the rich
+              coffee culture that brings people together.
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <Button
+                size="lg"
+                className="bg-clay-600 hover:bg-clay-700 active:bg-clay-800 text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base md:text-lg rounded-lg font-semibold shadow-xl hover:shadow-2xl active:shadow-lg transition-all duration-300 active:scale-[0.98] group w-full sm:w-auto"
+                asChild
+              >
+                <a href="#menu">
+                  Explore Our Menu
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
