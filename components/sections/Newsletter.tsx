@@ -1,38 +1,56 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useRef, useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import { motion, useInView } from "framer-motion";
+import { Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useRef, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Newsletter() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [email, setEmail] = useState('');
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [email, setEmail] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: 'Subscribed!',
-      description: 'You\'ve received 15% off discount code. Check your email!',
+      title: "Subscribed!",
+      description: "You've received 15% off discount code. Check your email!",
     });
-    setEmail('');
+    setEmail("");
   };
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-background relative paper-texture overflow-hidden" ref={ref}>
+    <section
+      className="py-16 sm:py-20 md:py-24 bg-background relative paper-texture overflow-hidden"
+      ref={ref}
+    >
       {/* Decorative coffee beans on sides */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block">
-        <div className="w-24 h-24 bg-coffee-700 rounded-full blur-3xl" />
+      <div
+        className="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block"
+        suppressHydrationWarning
+      >
+        <div
+          className="w-24 h-24 bg-coffee-700 rounded-full blur-3xl"
+          suppressHydrationWarning
+        />
       </div>
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block">
-        <div className="w-24 h-24 bg-clay-600 rounded-full blur-3xl" />
+      <div
+        className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block"
+        suppressHydrationWarning
+      >
+        <div
+          className="w-24 h-24 bg-clay-600 rounded-full blur-3xl"
+          suppressHydrationWarning
+        />
       </div>
 
-      <div className="content-max px-4 sm:px-6 lg:px-8 relative z-10">
+      <div
+        className="content-max px-4 sm:px-6 lg:px-8 relative z-10"
+        suppressHydrationWarning
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -53,7 +71,7 @@ export default function Newsletter() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
           >
-            <div className="relative flex-1">
+            <div className="relative flex-1" suppressHydrationWarning>
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="email"

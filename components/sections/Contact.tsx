@@ -44,19 +44,22 @@ export default function Contact() {
       ref={ref}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" suppressHydrationWarning>
         <Image
-          src="/images/contact.webp"
+          src="/images/h1-bacground-img-1.jpg.webp"
           alt="Contact background"
           fill
-          className="object-cover "
+          className="object-cover"
           sizes="100vw"
           priority
         />
         {/* <div className="absolute inset-0 bg-paper-50/95 dark:bg[#F6EFE8]" /> */}
       </div>
 
-      <div className="content-max px-5 sm:px-6 lg:px-8 relative z-10">
+      <div
+        className="content-max px-5 sm:px-6 lg:px-8 relative z-10"
+        suppressHydrationWarning
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -80,9 +83,15 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="content-max mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <div
+          className="content-max mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8"
+          suppressHydrationWarning
+        >
           {/* Left Column - Contact Info Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4 lg:gap-5">
+          <div
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4 lg:gap-5"
+            suppressHydrationWarning
+          >
             {contactInfo.map((info, index) => {
               const CardWrapper = info.href ? "a" : "div";
               const cardProps = info.href
@@ -113,7 +122,10 @@ export default function Contact() {
                         >
                           <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </motion.div>
-                        <div className="flex-1 min-w-0">
+                        <div
+                          className="flex-1 min-w-0"
+                          suppressHydrationWarning
+                        >
                           <h3 className="font-bold text-sm sm:text-base lg:text-lg mb-0.5 sm:mb-1 text-coffee-900">
                             {info.title}
                           </h3>

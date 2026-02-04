@@ -84,8 +84,8 @@ export default function Navbar() {
                   <span
                     className={`relative text-xs sm:text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
                       isScrolled
-                        ? "text-cream-900 dark:text-cream-300 hover:text-clay-600 dark:hover:text-clay-400"
-                        : "text-cream-100 hover:text-cream-300"
+                        ? "text-paper-50 dark:text-paper-50 hover:text-clay-400 dark:hover:text-clay-400"
+                        : "text-paper-50 hover:text-clay-400"
                     }`}
                   >
                     {link.label}

@@ -56,7 +56,7 @@ export default function Gallery() {
       ref={ref}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" suppressHydrationWarning>
         <Image
           src="/images/h1-bacground-img-1.jpg.webp"
           alt="Gallery background"
@@ -65,10 +65,16 @@ export default function Gallery() {
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-paper-50/50" />
+        <div
+          className="absolute inset-0 bg-paper-50/50"
+          suppressHydrationWarning
+        />
       </div>
 
-      <div className="relative z-10 content-max px-5 sm:px-6 lg:px-8">
+      <div
+        className="relative z-10 content-max px-5 sm:px-6 lg:px-8"
+        suppressHydrationWarning
+      >
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,7 +93,10 @@ export default function Gallery() {
         </motion.div>
 
         {/* Gallery Grid - 2 columns on mobile */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10 md:mb-12">
+        <div
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10 md:mb-12"
+          suppressHydrationWarning
+        >
           {galleryImages.map((image, index) => (
             <motion.div
               key={index}
@@ -121,6 +130,7 @@ export default function Gallery() {
                     ? "opacity-100"
                     : "opacity-0 sm:group-hover:opacity-100"
                 }`}
+                suppressHydrationWarning
               >
                 <p className="text-white text-sm sm:text-base md:text-lg font-semibold">
                   {image.alt}
@@ -131,8 +141,14 @@ export default function Gallery() {
               </div>
 
               {/* Touch indicator for mobile */}
-              <div className="sm:hidden absolute top-2 right-2 w-6 h-6 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-white rounded-full" />
+              <div
+                className="sm:hidden absolute top-2 right-2 w-6 h-6 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
+                suppressHydrationWarning
+              >
+                <div
+                  className="w-1.5 h-1.5 bg-white rounded-full"
+                  suppressHydrationWarning
+                />
               </div>
             </motion.div>
           ))}

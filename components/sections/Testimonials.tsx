@@ -151,19 +151,25 @@ export default function Testimonials() {
       className="py-14 sm:py-20 md:py-24 relative overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" suppressHydrationWarning>
         <Image
-          src="/images/reviews.webp"
-          alt="Coffee beans background"
+          src="/images/h1-bacground-img-1.jpg.webp"
+          alt="Testimonials background"
           fill
           className="object-cover"
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-paper-50/90 dark:bg-coffee-900/90" />
+        <div
+          className="absolute inset-0 bg-paper-50/90 dark:bg-coffee-900/90"
+          suppressHydrationWarning
+        />
       </div>
 
-      <div className="relative z-10 content-max px-5 sm:px-6 lg:px-8 mb-8 sm:mb-10 md:mb-12">
+      <div
+        className="relative z-10 content-max px-5 sm:px-6 lg:px-8 mb-8 sm:mb-10 md:mb-12"
+        suppressHydrationWarning
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -198,6 +204,7 @@ export default function Testimonials() {
         onTouchStart={() => setIsPaused(true)}
         onTouchEnd={() => setIsPaused(false)}
         style={{ scrollBehavior: "auto" }}
+        suppressHydrationWarning
       >
         {duplicatedTestimonials.map((testimonial, index) => (
           <motion.div
@@ -213,7 +220,10 @@ export default function Testimonials() {
           >
             <Card className="h-full hover:shadow-xl active:shadow-lg transition-all duration-300 border-2 border-clay-300/50 dark:border-clay-600/50 hover:border-clay-400 dark:hover:border-clay-500 bg-white dark:bg-coffee-900 group">
               <CardContent className="p-5 sm:p-6 md:p-8 flex flex-col h-full">
-                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                <div
+                  className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4"
+                  suppressHydrationWarning
+                >
                   <motion.div
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.3 }}
@@ -227,11 +237,14 @@ export default function Testimonials() {
                       </AvatarFallback>
                     </Avatar>
                   </motion.div>
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0" suppressHydrationWarning>
                     <p className="font-bold text-base sm:text-lg md:text-xl mb-1 sm:mb-2 text-coffee-900 dark:text-paper-100 drop-shadow-sm truncate">
                       {testimonial.name}
                     </p>
-                    <div className="flex gap-0.5 sm:gap-1">
+                    <div
+                      className="flex gap-0.5 sm:gap-1"
+                      suppressHydrationWarning
+                    >
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
@@ -242,7 +255,7 @@ export default function Testimonials() {
                   </div>
                 </div>
 
-                <div className="relative flex-grow">
+                <div className="relative flex-grow" suppressHydrationWarning>
                   <svg
                     className="absolute -top-1 -left-1 sm:-top-2 sm:-left-2 w-6 h-6 sm:w-8 sm:h-8 text-clay-200 dark:text-clay-800 opacity-50"
                     fill="currentColor"

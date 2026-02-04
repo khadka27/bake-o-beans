@@ -63,7 +63,7 @@ export default function OpeningHours() {
       ref={ref}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" suppressHydrationWarning>
         <Image
           src="/images/h1-bacground-img-1.jpg.webp"
           alt="Opening hours background"
@@ -72,10 +72,16 @@ export default function OpeningHours() {
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-paper-50/50 dark:bg-coffee-900/60" />
+        <div
+          className="absolute inset-0 bg-paper-50/50 dark:bg-coffee-900/60"
+          suppressHydrationWarning
+        />
       </div>
 
-      <div className="relative z-10 content-max px-5 sm:px-6 lg:px-8">
+      <div
+        className="relative z-10 content-max px-5 sm:px-6 lg:px-8"
+        suppressHydrationWarning
+      >
         {/* Welcome Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -95,12 +101,27 @@ export default function OpeningHours() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white/95 dark:bg-coffee-900/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl sm:shadow-2xl">
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+          <div
+            className="bg-white/95 dark:bg-coffee-900/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl sm:shadow-2xl"
+            suppressHydrationWarning
+          >
+            <div
+              className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12"
+              suppressHydrationWarning
+            >
               {/* Left Side - Opening Hours */}
-              <div className="flex flex-col justify-center">
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-clay-600 rounded-xl flex items-center justify-center">
+              <div
+                className="flex flex-col justify-center"
+                suppressHydrationWarning
+              >
+                <div
+                  className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6"
+                  suppressHydrationWarning
+                >
+                  <div
+                    className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-clay-600 rounded-xl flex items-center justify-center"
+                    suppressHydrationWarning
+                  >
                     <Clock className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                   </div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-sans font-bold text-coffee-900 dark:text-paper-100">
@@ -108,8 +129,11 @@ export default function OpeningHours() {
                   </h3>
                 </div>
 
-                <div className="space-y-3 sm:space-y-4">
-                  <div>
+                <div
+                  className="space-y-3 sm:space-y-4"
+                  suppressHydrationWarning
+                >
+                  <div suppressHydrationWarning>
                     <p className="text-base sm:text-lg md:text-xl font-sans font-semibold text-coffee-900 dark:text-paper-100 mb-1 sm:mb-2">
                       Monday – Sunday
                     </p>
@@ -124,8 +148,14 @@ export default function OpeningHours() {
               </div>
 
               {/* Right Side - Current Time & Status */}
-              <div className="flex flex-col justify-center items-center md:items-end text-center md:text-right border-t md:border-t-0 md:border-l border-coffee-200 dark:border-paper-700/30 pt-6 sm:pt-8 md:pt-0 md:pl-8 lg:pl-12">
-                <div className="space-y-3 sm:space-y-4">
+              <div
+                className="flex flex-col justify-center items-center md:items-end text-center md:text-right border-t md:border-t-0 md:border-l border-coffee-200 dark:border-paper-700/30 pt-6 sm:pt-8 md:pt-0 md:pl-8 lg:pl-12"
+                suppressHydrationWarning
+              >
+                <div
+                  className="space-y-3 sm:space-y-4"
+                  suppressHydrationWarning
+                >
                   <p className="text-xs sm:text-sm md:text-base text-coffee-700 dark:text-paper-300 font-medium">
                     Current Nepal Time
                   </p>
@@ -134,7 +164,10 @@ export default function OpeningHours() {
                   </p>
 
                   {/* Status Badge */}
-                  <div className="flex justify-center md:justify-end pt-2 sm:pt-4">
+                  <div
+                    className="flex justify-center md:justify-end pt-2 sm:pt-4"
+                    suppressHydrationWarning
+                  >
                     <motion.span
                       whileTap={{ scale: 0.98 }}
                       className={`inline-flex items-center px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-sm sm:text-base md:text-lg font-semibold shadow-md ${
