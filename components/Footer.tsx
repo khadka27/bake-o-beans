@@ -32,6 +32,7 @@ export default function Footer() {
         { name: "Shop", href: "#menu" },
         { name: "Order ahead", href: "#contact" },
         { name: "Menu", href: "#menu" },
+        { name: "Gallery", href: "/gallery" },
       ],
     },
     {
