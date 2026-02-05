@@ -1,39 +1,43 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { Coffee, Croissant, Leaf, Wifi } from 'lucide-react';
-import Image from 'next/image';
-import { useRef } from 'react';
+import { motion, useInView } from "framer-motion";
+import { Coffee, Croissant, Leaf, Wifi } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
 
 export default function WhyChooseUs() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const features = [
     {
       icon: Coffee,
-      title: 'Freshly Roasted Beans',
-      description: 'We source premium beans and roast them fresh daily for the perfect cup every time.',
+      title: "Freshly Roasted Beans",
+      description:
+        "We use premium-quality coffee beans and roast them fresh to deliver rich aroma, bold flavor, and a consistently perfect cup at Bake O Beans Café.",
     },
     {
       icon: Croissant,
-      title: 'Handmade Pastries Daily',
-      description: 'Our bakers craft fresh pastries each morning using traditional recipes and finest ingredients.',
+      title: "Handmade Pastries Daily",
+      description:
+        "Our pastries are baked fresh every day using traditional recipes and carefully selected ingredients to ensure taste, texture, and freshness.",
     },
     {
       icon: Leaf,
-      title: 'Organic & Locally Sourced',
-      description: 'Committed to organic ingredients and supporting local farmers for sustainable, quality products.',
+      title: "Organic & Locally Sourced",
+      description:
+        "We prioritize organic ingredients and support local farmers, bringing you high-quality, sustainable products straight from trusted sources.",
     },
     {
       icon: Wifi,
-      title: 'Free Wi-Fi & Cozy Seating',
-      description: 'Enjoy free high-speed Wi-Fi in our comfortable, welcoming space perfect for work or relaxation.',
+      title: "Free Wi-Fi & Cozy Seating",
+      description:
+        "Relax in our warm, comfortable café with free high-speed Wi-Fi-ideal for work, meetings, or unwinding over great coffee.",
     },
   ];
 
   return (
-    <section 
+    <section
       className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
       ref={ref}
     >
@@ -62,7 +66,8 @@ export default function WhyChooseUs() {
             Why Choose Us
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-coffee-700/80 max-w-2xl mx-auto leading-relaxed">
-            Discover what makes us different and why we're the perfect choice for your coffee experience
+            Discover what makes us different and why we're the perfect choice
+            for your coffee experience
           </p>
         </motion.div>
 
@@ -73,14 +78,19 @@ export default function WhyChooseUs() {
               key={feature.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.6, type: 'spring', stiffness: 200 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 200,
+              }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="flex flex-col items-center text-center group"
             >
               {/* Icon Container */}
               <motion.div
                 whileHover={{ scale: 1.15, rotate: 5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-clay-600 flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300"
               >
                 {/* SVG Icon */}

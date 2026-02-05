@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Gallery() {
@@ -13,33 +14,33 @@ export default function Gallery() {
 
   const galleryImages = [
     {
-      src: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Cozy café interior",
+      src: "/images/gallery/bakeobeansimage1.webp",
+      alt: "Cozy interior of Bake O Beans Café in Simalchaur, Pokhara",
       category: "interior",
     },
     {
-      src: "https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Beautiful latte art",
+      src: "/images/gallery/bakeobeansimage2.webp",
+      alt: "Artisan latte art at the best coffee shop in Pokhara",
       category: "coffee",
     },
     {
-      src: "https://images.pexels.com/photos/1209029/pexels-photo-1209029.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Warm café atmosphere",
+      src: "/images/gallery/bakeobeansimage3.webp",
+      alt: "Relaxing café atmosphere at Bake O Beans Simalchaur",
       category: "interior",
     },
     {
-      src: "https://images.pexels.com/photos/1251175/pexels-photo-1251175.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Perfect cappuccino",
+      src: "/images/gallery/bakeobeansimage4.webp",
+      alt: "Freshly brewed premium cappuccino in Pokhara-8",
       category: "coffee",
     },
     {
-      src: "https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Customers enjoying coffee",
+      src: "/images/gallery/bakeobeansimage5.webp",
+      alt: "Happy customers enjoying coffee at Bake O Beans Café",
       category: "customers",
     },
     {
-      src: "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Artisan coffee preparation",
+      src: "/images/gallery/bakeobeansimage6.webp",
+      alt: "Handcrafted coffee preparation at our Simalchaur bakery and café",
       category: "coffee",
     },
   ];
@@ -87,17 +88,17 @@ export default function Gallery() {
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-coffee-700/80 max-w-xl sm:max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
             Experience the warm, inviting atmosphere that makes us more than
-            just a café—it's a place where moments are made and memories are
+            just a café-it's a place where moments are made and memories are
             created.
           </p>
         </motion.div>
 
-        {/* Gallery Grid - 2 columns on mobile */}
+        {/* Gallery Grid - Unstructured Layout */}
         <div
-          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10 md:mb-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-10 md:mb-12 auto-rows-[200px] sm:auto-rows-[250px] md:auto-rows-[300px]"
           suppressHydrationWarning
         >
-          {galleryImages.map((image, index) => (
+          {galleryImages.slice(0, 6).map((image, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -108,7 +109,13 @@ export default function Gallery() {
                 type: "spring",
                 stiffness: 200,
               }}
-              className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg group cursor-pointer transition-all duration-300 aspect-[4/3]"
+              className={`relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg group cursor-pointer transition-all duration-300 ${
+                index === 0
+                  ? "col-span-2 row-span-2" // Large square
+                  : index === 3
+                    ? "col-span-2" // Wide rectangle
+                    : ""
+              }`}
               onClick={() => handleToggle(index)}
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
@@ -120,7 +127,7 @@ export default function Gallery() {
                 className={`object-cover transition-transform duration-500 ${
                   activeIndex === index ? "scale-110" : "scale-100"
                 }`}
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
 
               {/* Overlay */}
@@ -138,17 +145,6 @@ export default function Gallery() {
                 <span className="text-white/70 text-xs sm:text-sm capitalize">
                   {image.category}
                 </span>
-              </div>
-
-              {/* Touch indicator for mobile */}
-              <div
-                className="sm:hidden absolute top-2 right-2 w-6 h-6 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
-                suppressHydrationWarning
-              >
-                <div
-                  className="w-1.5 h-1.5 bg-white rounded-full"
-                  suppressHydrationWarning
-                />
               </div>
             </motion.div>
           ))}
@@ -171,10 +167,10 @@ export default function Gallery() {
             className="bg-clay-600 hover:bg-clay-700 active:bg-clay-800 text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base md:text-lg rounded-lg font-semibold shadow-xl hover:shadow-2xl active:shadow-lg transition-all duration-300 active:scale-[0.98] group"
             asChild
           >
-            <a href="#gallery">
-              View Gallery
+            <Link href="/gallery">
+              View All Photos
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </Button>
         </motion.div>
       </div>

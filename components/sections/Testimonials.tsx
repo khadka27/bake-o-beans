@@ -57,7 +57,7 @@ export default function Testimonials() {
     {
       id: 8,
       name: "Shruti Basnet",
-      text: "The vibe, the coffee, the bakery — everything is on point. Perfect hangout spot.",
+      text: "The vibe, the coffee, the bakery - everything is on point. Perfect hangout spot.",
       rating: 5,
     },
     {

@@ -10,26 +10,29 @@ const heroSlides = [
   {
     id: 1,
     image: "/images/hero.webp",
-    title: "COFFEE HEAVEN",
-    subtitle: "Premium Quality Coffee",
+    title: "Bake O Beans Café – Best Coffee & Bakery in Simalchaur, Pokhara",
+    subtitle: "Warm & Premium",
     description:
-      "Experience the finest handcrafted coffee made with passion and precision. Every cup tells a story of quality and dedication.",
+      "Experience handcrafted coffee, freshly baked pastries, and cozy vibes at Bake O Beans Café in Simalchaur, Pokhara-8. From rich espresso to delicious desserts, every cup and bite is made with passion.",
+    cta: "Explore Our Menu",
   },
   {
     id: 2,
     image: "/images/hero2.webp",
-    title: "ARTISAN BAKERY",
-    subtitle: "Freshly Baked Daily",
+    title: "Where Every Cup Tells a Story in Pokhara",
+    subtitle: "Experience & Storytelling",
     description:
-      "Indulge in our freshly baked pastries and desserts, made with the finest ingredients and traditional techniques.",
+      "Located in Simalchaur, Pokhara-8, Bake O Beans Café is your go-to destination for premium coffee, fresh bakery items, and a relaxing café experience. Perfect for work, catch-ups, or quiet coffee moments.",
+    cta: "Visit Bake O Beans Café",
   },
   {
     id: 3,
     image: "/images/hero3.webp",
-    title: "PERFECT BLEND",
-    subtitle: "Where Taste Meets Tradition",
+    title: "Your Neighborhood Café in Simalchaur, Pokhara-8",
+    subtitle: "Modern & Local",
     description:
-      "Discover the perfect harmony of rich coffee flavors and warm, inviting atmosphere in the heart of the city.",
+      "Bake O Beans Café serves freshly brewed coffee, handcrafted drinks, and bakery delights in the heart of Simalchaur, Pokhara. Enjoy quality flavors, friendly service, and a cozy space made for coffee lovers.",
+    cta: "Discover Coffee Heaven",
   },
 ];
 
@@ -200,7 +203,7 @@ export default function Hero() {
                   duration: 0.9,
                   ease: [0.4, 0, 0.2, 1],
                 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-serif font-bold leading-[1.1] px-2 text-paper-50 drop-shadow-lg"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-serif font-bold leading-[1.2] px-2 text-paper-50 drop-shadow-lg"
               >
                 {heroSlides[currentSlide].title}
               </motion.h1>
@@ -232,10 +235,34 @@ export default function Hero() {
                   duration: 0.8,
                   ease: [0.4, 0, 0.2, 1],
                 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl text-paper-100/95 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
+                className="text-xs sm:text-sm md:text-base lg:text-lg text-paper-100/95 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
               >
                 {heroSlides[currentSlide].description}
               </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.7,
+                  duration: 0.8,
+                  ease: [0.4, 0, 0.2, 1],
+                }}
+                className="pt-4"
+              >
+                <Button
+                  size="lg"
+                  className="bg-clay-500 hover:bg-clay-600 text-white rounded-full px-8 py-6 text-lg font-semibold transition-all hover:scale-105 active:scale-95 shadow-xl hover:shadow-clay-500/20"
+                  onClick={() => {
+                    const menuSection = document.getElementById("menu");
+                    if (menuSection) {
+                      menuSection.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  {heroSlides[currentSlide].cta}
+                </Button>
+              </motion.div>
 
               {/* Swipe hint - Mobile only */}
               <motion.p

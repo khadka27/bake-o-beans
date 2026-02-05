@@ -37,9 +37,25 @@ export default function OpeningHours() {
       const [hours, minutes] = nepalTimeString.split(":").map(Number);
       const currentMinutes = hours * 60 + minutes;
 
-      // Check if open (7:00 AM - 7:00 PM = 7:00 - 19:00)
-      const openTime = 7 * 60; // 7:00 AM = 420 minutes
-      const closeTime = 19 * 60; // 7:00 PM = 1140 minutes
+      // Get day of week in Nepal
+      const dayName = now.toLocaleDateString("en-US", {
+        weekday: "short",
+        timeZone: "Asia/Kathmandu",
+      });
+
+      // Check if open with new schedule
+      let openTime, closeTime;
+      if (dayName === "Sat") {
+        openTime = 8 * 60; // 8:00 AM
+        closeTime = 22 * 60; // 10:00 PM
+      } else if (dayName === "Sun") {
+        openTime = 8 * 60; // 8:00 AM
+        closeTime = 20 * 60; // 8:00 PM
+      } else {
+        openTime = 7 * 60; // 7:00 AM
+        closeTime = 21 * 60; // 9:00 PM
+      }
+
       const isCurrentlyOpen =
         currentMinutes >= openTime && currentMinutes < closeTime;
 
@@ -90,7 +106,7 @@ export default function OpeningHours() {
           className="text-center mb-6 sm:mb-8 md:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-sans font-bold text-coffee-900 dark:text-paper-100 px-4">
-            Welcome to Bake O Beans
+            Welcome to Bake O Beans Café
           </h2>
         </motion.div>
 
@@ -129,21 +145,31 @@ export default function OpeningHours() {
                   </h3>
                 </div>
 
-                <div
-                  className="space-y-3 sm:space-y-4"
-                  suppressHydrationWarning
-                >
+                <div suppressHydrationWarning className="space-y-4">
                   <div suppressHydrationWarning>
-                    <p className="text-base sm:text-lg md:text-xl font-sans font-semibold text-coffee-900 dark:text-paper-100 mb-1 sm:mb-2">
-                      Monday – Sunday
+                    <p className="text-sm sm:text-base font-sans font-semibold text-coffee-900 dark:text-paper-100 uppercase tracking-wider mb-1">
+                      Monday – Friday
                     </p>
-                    <p className="text-xl sm:text-2xl md:text-3xl font-sans font-bold text-clay-600">
-                      7:00 AM – 7:00 PM
+                    <p className="text-xl sm:text-2xl font-sans font-bold text-clay-600">
+                      7:00 AM – 9:00 PM
                     </p>
                   </div>
-                  <p className="text-xs sm:text-sm md:text-base text-coffee-700 dark:text-paper-300 italic">
-                    Open all days of the week
-                  </p>
+                  <div suppressHydrationWarning>
+                    <p className="text-sm sm:text-base font-sans font-semibold text-coffee-900 dark:text-paper-100 uppercase tracking-wider mb-1">
+                      Saturday
+                    </p>
+                    <p className="text-xl sm:text-2xl font-sans font-bold text-clay-600">
+                      8:00 AM – 10:00 PM
+                    </p>
+                  </div>
+                  <div suppressHydrationWarning>
+                    <p className="text-sm sm:text-base font-sans font-semibold text-coffee-900 dark:text-paper-100 uppercase tracking-wider mb-1">
+                      Sunday
+                    </p>
+                    <p className="text-xl sm:text-2xl font-sans font-bold text-clay-600">
+                      8:00 AM – 8:00 PM
+                    </p>
+                  </div>
                 </div>
               </div>
 

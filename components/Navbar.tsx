@@ -35,7 +35,7 @@ export default function Navbar() {
     { href: "/menu", label: "MENU" },
     { href: "/#about", label: "ABOUT" },
     { href: "/#gallery", label: "GALLERY" },
-    { href: "/#contact", label: "CONTACT" },
+    { href: "/contact", label: "CONTACT" },
   ];
 
   return (
@@ -45,6 +45,7 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+        suppressHydrationWarning
       >
         {/* Island Shape Navbar */}
         <div
@@ -53,6 +54,7 @@ export default function Navbar() {
               ? "bg-background/95 dark:bg-coffee-900/95 backdrop-blur-xl shadow-lg border border-border/50"
               : "bg-white/10 backdrop-blur-md border border-white/20"
           }`}
+          suppressHydrationWarning
         >
           <div className="flex items-center justify-between h-11 sm:h-12 md:h-14">
             {/* Logo */}
@@ -65,7 +67,7 @@ export default function Navbar() {
               >
                 <Image
                   src="/images/logo.png"
-                  alt="Bake O Beans"
+                  alt="Bake O Beans Café"
                   fill
                   className={`object-contain transition-all duration-300 ${isScrolled ? "dark:brightness-0 dark:invert" : "brightness-0 invert"}`}
                   priority
@@ -201,8 +203,8 @@ export default function Navbar() {
                 >
                   {/* Quick Info */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <a
-                      href="#contact"
+                    <Link
+                      href="/contact"
                       onClick={() => setIsOpen(false)}
                       className="flex items-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
                     >
@@ -210,10 +212,10 @@ export default function Navbar() {
                       <div>
                         <p className="text-xs text-paper-400">Visit Us</p>
                         <p className="text-sm text-paper-100">
-                          Lakeside, Pokhara
+                          Simalchaur, Pokhara
                         </p>
                       </div>
-                    </a>
+                    </Link>
                     <a
                       href="tel:+97761XXXXXX"
                       className="flex items-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"

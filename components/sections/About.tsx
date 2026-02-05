@@ -49,15 +49,21 @@ export default function About() {
               <span className="text-clay-400">Tells a Story</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-paper-200 leading-relaxed mb-6 sm:mb-8 max-w-xl">
-              At Bake O Beans, we believe coffee is more than a drink—it's an
-              experience. Nestled in the heart of Pokhara, our café combines
-              locally sourced beans with artisan brewing techniques to create
-              moments of pure bliss.
+              At Bake O Beans Café, we believe coffee is more than just a
+              drink-it’s a moment to pause, connect, and enjoy. Located in
+              Simalchaur, Pokhara-8, our café is a cozy space where quality
+              coffee meets warm hospitality.
             </p>
-            <p className="text-xs sm:text-sm md:text-base text-paper-300 leading-relaxed mb-8 sm:mb-10 max-w-lg">
-              From our signature roasts to freshly baked pastries, every item is
-              crafted with passion and care. Join us in celebrating the rich
-              coffee culture that brings people together.
+            <p className="text-xs sm:text-sm md:text-base text-paper-300 leading-relaxed mb-6 sm:mb-8 max-w-lg">
+              We carefully select premium coffee beans and combine them with
+              artisan brewing techniques to create rich, flavorful cups that
+              keep you coming back. From freshly brewed coffee to oven-fresh
+              pastries, every item is crafted with passion and attention to
+              detail.
+            </p>
+            <p className="text-xs sm:text-sm md:text-base text-paper-300 leading-relaxed mb-8 sm:mb-10 max-w-lg italic">
+              Join us at Bake O Beans Café and experience the true essence of
+              Pokhara’s growing coffee culture-one cup at a time.
             </p>
 
             <motion.div

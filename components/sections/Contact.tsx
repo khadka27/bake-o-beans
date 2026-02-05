@@ -14,25 +14,31 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "Lakeside, Pokhara 33700, Nepal",
-      href: "https://maps.google.com/?q=Lakeside,Pokhara,Nepal",
+      details: "Simalchaur, Pokhara-8, Nepal",
+      description:
+        "Easily accessible and a perfect stop for coffee lovers in Pokhara",
+      href: "https://maps.google.com/?q=Bake+O+Beans+Cafe,Simalchaur,Pokhara,Nepal",
     },
     {
       icon: Phone,
       title: "Call Us",
       details: "+977 61-XXXXXX",
+      description: "Call us for orders, inquiries, or quick assistance",
       href: "tel:+97761XXXXXX",
     },
     {
       icon: Mail,
       title: "Email Us",
       details: "hello@bakeobeans.com",
+      description:
+        "Send us your questions, feedback, or collaboration requests",
       href: "mailto:hello@bakeobeans.com",
     },
     {
       icon: Clock,
       title: "Opening Hours",
-      details: "Mon-Fri: 7AM-9PM, Sat: 8AM-10PM, Sun: 8AM-8PM",
+      details: "Mon–Fri: 7AM–9PM, Sat: 8AM–10PM, Sun: 8AM–8PM",
+      description: "Open throughout the week for your caffeine fix",
       href: null,
     },
   ];
@@ -72,14 +78,15 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="inline-block text-clay-600 font-medium text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3"
           >
-            Get In Touch
+            GET IN TOUCH
           </motion.span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mt-2 sm:mt-3 mb-3 sm:mb-4 text-coffee-900 drop-shadow-sm">
             Contact Us
           </h2>
           <p className="text-coffee-800 font-semibold text-sm sm:text-base max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-            Have a question or want to place a special order? We'd love to hear
-            from you!
+            Have a question, want to place a special order, or planning a visit?
+            We’d love to hear from you. Reach out to Bake O Beans Café and let
+            us make your coffee experience even better.
           </p>
         </motion.div>
 
@@ -129,9 +136,14 @@ export default function Contact() {
                           <h3 className="font-bold text-sm sm:text-base lg:text-lg mb-0.5 sm:mb-1 text-coffee-900">
                             {info.title}
                           </h3>
-                          <p className="text-coffee-800 font-semibold text-xs sm:text-sm lg:text-base break-words leading-relaxed">
+                          <p className="text-coffee-800 font-bold text-xs sm:text-sm lg:text-base break-words leading-tight mb-1">
                             {info.details}
                           </p>
+                          {info.description && (
+                            <p className="text-coffee-700 text-[10px] sm:text-xs lg:text-sm leading-relaxed">
+                              {info.description}
+                            </p>
+                          )}
                         </div>
                       </CardContent>
                     </CardWrapper>
@@ -149,7 +161,7 @@ export default function Contact() {
             className="rounded-xl overflow-hidden border border-border shadow-md h-[280px] sm:h-[350px] lg:h-full lg:min-h-[420px] relative"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1234567890123!2d83.9855!3d28.2096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995951e8f5d4b1b%3A0x1234567890abcdef!2sLakeside%2C%20Pokhara%2033700%2C%20Nepal!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1481198!2d83.983!3d28.215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995951e8f5d4b1b%3A0x1234567890abcdef!2sSimalchaur%2C%20Pokhara%2033700%2C%20Nepal!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
               width="100%"
               height="100%"
               style={{ border: 0 }}

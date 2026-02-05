@@ -13,36 +13,44 @@ export default function Specials() {
     {
       id: 1,
       name: "Himalayan Blend Latte",
-      image:
-        "https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg?auto=compress&cs=tinysrgb&w=600",
+      description:
+        "A smooth and aromatic signature latte inspired by Himalayan flavors, crafted with premium coffee beans.",
+      image: "/images/our-specials/21563-himalayan-latte-2.jpg",
     },
     {
       id: 2,
       name: "Almond Croissant",
+      description:
+        "Buttery, flaky, and freshly baked croissant filled with rich almond goodness.",
       image:
-        "https://images.pexels.com/photos/3590401/pexels-photo-3590401.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "/images/our-specials/Easy-Chocolate-Almond-Croissants-2-crop.webp",
     },
     {
       id: 3,
       name: "Matcha Latte",
-      image:
-        "https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=600",
+      description:
+        "A creamy and refreshing matcha latte made with high-quality matcha.",
+      image: "/images/our-specials/IcedMatchaLatte-1.jpg",
     },
     {
       id: 4,
       name: "Tiramisu",
-      image:
-        "https://images.pexels.com/photos/6880219/pexels-photo-6880219.jpeg?auto=compress&cs=tinysrgb&w=600",
+      description:
+        "Classic Italian dessert layered with espresso-soaked sponge and mascarpone cream.",
+      image: "/images/our-specials/THUMB-VIDEO-2_rev1-56.avif",
     },
     {
       id: 5,
       name: "Cappuccino",
-      image:
-        "https://images.pexels.com/photos/1251175/pexels-photo-1251175.jpeg?auto=compress&cs=tinysrgb&w=600",
+      description:
+        "Timeless favorite featuring bold espresso topped with velvety milk foam.",
+      image: "/images/our-specials/anleitung-cappuccino-blogheader.webp",
     },
     {
       id: 6,
       name: "Chocolate Cake",
+      description:
+        "Moist, rich, and deeply chocolatey-a must-try dessert for chocolate lovers.",
       image:
         "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
@@ -74,11 +82,17 @@ export default function Specials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-coffee-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-coffee-900 mb-2">
             OUR SPECIALS
           </h2>
+          <p className="text-clay-600 font-medium text-xs sm:text-sm uppercase tracking-wider mb-4">
+            Discover our featured drinks and bakery favorites
+          </p>
           <p className="text-sm sm:text-base md:text-lg text-coffee-700/80 max-w-2xl mx-auto leading-relaxed">
-            Discover our featured dishes and seasonal favorites
+            Explore the most loved creations at Bake O Beans Café, Simalchaur,
+            Pokhara-8. From signature coffee blends to freshly baked desserts,
+            our specials are crafted to highlight bold flavors and customer
+            favorites.
           </p>
         </motion.div>
 
@@ -107,7 +121,7 @@ export default function Specials() {
               >
                 <Image
                   src={special.image}
-                  alt={special.name}
+                  alt={`${special.name} at Bake O Beans Café - Simalchaur, Pokhara`}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, 224px"
@@ -147,6 +161,9 @@ export default function Specials() {
                 >
                   {special.name}
                 </motion.h3>
+                <p className="hidden sm:block text-[10px] sm:text-xs text-coffee-700 mt-1 line-clamp-2 px-2">
+                  {special.description}
+                </p>
               </motion.div>
             </motion.div>
           ))}

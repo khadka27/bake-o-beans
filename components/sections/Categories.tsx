@@ -14,28 +14,28 @@ export default function Categories() {
       id: "types-coffee",
       label: "TYPES OF COFFEE",
       description:
-        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+        "From classic espresso and cappuccino to flavored lattes and iced coffee, we serve expertly brewed coffee made from freshly roasted beans for every taste.",
       image: "/images/h2-custom-icon-5.png",
     },
     {
       id: "bean-varieties",
       label: "BEAN VARIETIES",
       description:
-        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+        "We use high-quality coffee beans selected for rich aroma and balanced flavor, ensuring a smooth and satisfying cup every time you visit Bake O Beans Café.",
       image: "/images/h2-custom-icon-6.png",
     },
     {
       id: "coffee-pastry",
       label: "COFFEE & PASTRY",
       description:
-        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+        "Enjoy the perfect pairing of handcrafted coffee and freshly baked pastries, croissants, brownies, and desserts-baked daily with care and passion.",
       image: "/images/h2-custom-icon-7.png",
     },
     {
       id: "coffee-to-go",
       label: "COFFEE TO GO",
       description:
-        "Lorem ipsum dolor sit ametal, consectetuer adipiscing elitus. Aeneantos commodo",
+        "Short on time? Grab your favorite coffee to go and enjoy premium café flavors wherever your day takes you in Pokhara.",
       image: "/images/h2-custom-icon-8.png",
     },
   ];
@@ -65,9 +65,12 @@ export default function Categories() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 text-coffee-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-2 text-coffee-900 leading-tight">
             OUR DELICIOUS OFFER
           </h2>
+          <p className="text-clay-600 font-medium text-xs sm:text-sm uppercase tracking-wider mb-4">
+            Bake O Beans Café – Simalchaur, Pokhara-8
+          </p>
 
           {/* Separator with Coffee Icon */}
           <motion.div
@@ -89,8 +92,10 @@ export default function Categories() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-sm sm:text-base md:text-lg text-coffee-800 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore
+            Discover our carefully crafted coffee, premium beans, and freshly
+            baked treats. At Bake O Beans Café, every item is made to deliver
+            quality, comfort, and unforgettable flavor-right in the heart of
+            Simalchaur, Pokhara.
           </motion.p>
         </motion.div>
 
@@ -113,7 +118,7 @@ export default function Categories() {
               >
                 <Image
                   src={category.image}
-                  alt={category.label}
+                  alt={`Bake O Beans Café - ${category.label} in Simalchaur`}
                   fill
                   className="object-contain opacity-80 brightness-90 contrast-110"
                   sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 112px"

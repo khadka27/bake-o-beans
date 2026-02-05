@@ -29,7 +29,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p className="text-coffee-800 dark:text-paper-300 leading-relaxed">
-              By accessing and using Bake O Beans website and services, you
+              By accessing and using Bake O Beans Café website and services, you
               accept and agree to be bound by the terms and provision of this
               agreement. If you do not agree to these terms, please do not use
               our services.
@@ -75,7 +75,7 @@ export default function TermsPage() {
             </h2>
             <p className="text-coffee-800 dark:text-paper-300 leading-relaxed">
               All content on this website, including text, graphics, logos,
-              images, and software, is the property of Bake O Beans and is
+              images, and software, is the property of Bake O Beans Café and is
               protected by copyright and other intellectual property laws.
             </p>
           </section>
@@ -85,9 +85,9 @@ export default function TermsPage() {
               5. Limitation of Liability
             </h2>
             <p className="text-coffee-800 dark:text-paper-300 leading-relaxed">
-              Bake O Beans shall not be liable for any indirect, incidental,
-              special, consequential, or punitive damages resulting from your
-              use of or inability to use the service.
+              Bake O Beans Café shall not be liable for any indirect,
+              incidental, special, consequential, or punitive damages resulting
+              from your use of or inability to use the service.
             </p>
           </section>
 

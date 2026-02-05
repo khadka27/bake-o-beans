@@ -35,6 +35,14 @@ export default function Footer() {
       ],
     },
     {
+      title: "LOCATION",
+      links: [
+        { name: "Simalchaur, Pokhara-8", href: "#contact" },
+        { name: "Pokhara, Nepal", href: "#contact" },
+        { name: "Get Directions", href: "https://goo.gl/maps/..." },
+      ],
+    },
+    {
       title: "ABOUT US",
       links: [
         { name: "Find a location", href: "#contact" },
@@ -100,7 +108,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-coffee-900 text-paper-50 relative overflow-hidden safe-area-inset">
+    <footer
+      className="bg-coffee-900 text-paper-50 relative overflow-hidden safe-area-inset"
+      suppressHydrationWarning
+    >
       {/* Background Image */}
       <div className="absolute inset-0 z-0" suppressHydrationWarning>
         <Image
@@ -195,7 +206,7 @@ export default function Footer() {
             >
               <Image
                 src="/images/logo.png"
-                alt="Bake O Beans"
+                alt="Bake O Beans Café"
                 fill
                 className="object-contain brightness-0 invert"
                 sizes="(max-width: 640px) 128px, (max-width: 1024px) 160px, 200px"
@@ -205,7 +216,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <p className="text-paper-300 text-xs sm:text-sm md:text-base order-3 sm:order-2">
-              &copy; {currentYear} Bake O Beans. All rights reserved.
+              &copy; {currentYear} Bake O Beans Café. All rights reserved.
             </p>
 
             {/* Made with love */}

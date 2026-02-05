@@ -41,7 +41,7 @@ export default function CookiesPage() {
               How We Use Cookies
             </h2>
             <p className="text-coffee-800 dark:text-paper-300 leading-relaxed mb-4">
-              Bake O Beans uses cookies to:
+              Bake O Beans Café uses cookies to:
             </p>
             <ul className="list-disc pl-6 text-coffee-800 dark:text-paper-300 space-y-2">
               <li>Remember your preferences and settings</li>
