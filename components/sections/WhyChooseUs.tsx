@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
           fill
           className="object-cover"
           sizes="100vw"
-          priority
+          quality={70}
         />
         <div className="absolute inset-0 bg-paper-50/50" />
       </div>

@@ -142,6 +142,7 @@ export default function Hero() {
               className="object-cover"
               priority={currentSlide === 0}
               sizes="100vw"
+              quality={90}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-coffee-900/80 via-coffee-900/40 to-coffee-900/30" />
           </motion.div>

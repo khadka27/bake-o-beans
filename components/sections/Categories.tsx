@@ -53,6 +53,7 @@ export default function Categories() {
           fill
           className="object-cover"
           sizes="100vw"
+          quality={70}
         />
         {/* <div className="absolute inset-0 bg-white/95 dark:bg-paper-400" /> */}
       </div>

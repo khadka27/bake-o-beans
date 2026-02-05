@@ -69,8 +69,8 @@ export default function Specials() {
           alt="Specials background"
           fill
           className="object-cover"
-          sizes="100vw"
-          priority
+          sizes="(max-width: 768px) 100vw, 100vw"
+          quality={65}
         />
         <div className="absolute inset-0 bg-paper-50/50" />
       </div>

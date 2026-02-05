@@ -170,6 +170,7 @@ export default function GalleryClient() {
                   loop
                   autoPlay
                   playsInline
+                  preload="none"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               ) : (

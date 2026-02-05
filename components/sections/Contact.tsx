@@ -17,7 +17,7 @@ export default function Contact() {
       details: "Simalchaur, Pokhara-8, Nepal",
       description:
         "Easily accessible and a perfect stop for coffee lovers in Pokhara",
-      href: "https://maps.google.com/?q=Bake+O+Beans+Cafe,Simalchaur,Pokhara,Nepal",
+      href: "https://www.google.com/maps/dir/28.207085,83.9763575/28.207082,83.9763904/@28.2070652,83.9765553,62m/data=!3m1!1e3!4m2!4m1!3e0?entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D",
     },
     {
       icon: Phone,
@@ -57,7 +57,7 @@ export default function Contact() {
           fill
           className="object-cover"
           sizes="100vw"
-          priority
+          quality={70}
         />
         {/* <div className="absolute inset-0 bg-paper-50/95 dark:bg[#F6EFE8]" /> */}
       </div>
@@ -158,18 +158,29 @@ export default function Contact() {
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="rounded-xl overflow-hidden border border-border shadow-md h-[280px] sm:h-[350px] lg:h-full lg:min-h-[420px] relative"
+            className="rounded-xl overflow-hidden border border-border shadow-md h-[280px] sm:h-[350px] lg:h-full lg:min-h-[420px] relative bg-paper-200/50"
           >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1481198!2d83.983!3d28.215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995951e8f5d4b1b%3A0x1234567890abcdef!2sSimalchaur%2C%20Pokhara%2033700%2C%20Nepal!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale hover:grayscale-0 transition-all duration-500"
-            />
+            {isInView ? (
+              <iframe
+                src="https://maps.google.com/maps?q=28.207085,83.9763575&t=&z=18&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale hover:grayscale-0 transition-all duration-500"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="flex flex-col items-center gap-2">
+                  <MapPin className="w-8 h-8 text-clay-400 animate-pulse" />
+                  <p className="text-coffee-600 text-sm font-medium">
+                    Loading Map...
+                  </p>
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>

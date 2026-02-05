@@ -24,7 +24,7 @@ export default function About() {
           fill
           className="object-cover"
           sizes="100vw"
-          priority
+          quality={70}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-coffee-900/95 via-coffee-900/85 to-coffee-900/70" />
       </div>

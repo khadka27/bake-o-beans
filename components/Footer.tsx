@@ -40,7 +40,7 @@ export default function Footer() {
       links: [
         { name: "Simalchaur, Pokhara-8", href: "#contact" },
         { name: "Pokhara, Nepal", href: "#contact" },
-        { name: "Get Directions", href: "https://goo.gl/maps/..." },
+        { name: "Get Directions", href: "https://www.google.com/maps/dir/28.207085,83.9763575/28.207082,83.9763904/@28.2070652,83.9765553,62m/data=!3m1!1e3!4m2!4m1!3e0?entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D" },
       ],
     },
     {

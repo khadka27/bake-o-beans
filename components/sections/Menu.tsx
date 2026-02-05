@@ -61,7 +61,7 @@ export default function Menu() {
           fill
           className="object-cover"
           sizes="100vw"
-          priority
+          quality={70}
         />
         {/* <div className="absolute inset-0 bg-paper-50/95 dark:bg-coffee-900/95" /> */}
       </div>
