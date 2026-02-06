@@ -110,10 +110,11 @@ export default function Categories() {
             variants={itemVariants}
             className="text-sm sm:text-base md:text-lg text-coffee-800 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
           >
-            Discover our carefully crafted coffee, premium beans, and freshly
-            baked treats. At Bake O Beans Café, every item is made to deliver
-            quality, comfort, and unforgettable flavor-right in the heart of
-            Simalchaur, Pokhara.
+            Experience why we are considered the{" "}
+            <strong>best café in Pokhara</strong>. Discover our carefully
+            crafted specialty drinks, premium beans, and freshly baked treats at
+            Bake O Beans, where we serve the{" "}
+            <strong>best coffee in Pokhara</strong> every single day.
           </motion.p>
         </motion.div>
 
@@ -134,7 +135,7 @@ export default function Categories() {
               <div className="mb-4 sm:mb-6 relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 p-3 bg-clay-50 rounded-full">
                 <Image
                   src={category.image}
-                  alt={category.label}
+                  alt={`${category.label} - Best Café & Coffee in Pokhara`}
                   fill
                   className="object-contain opacity-80 brightness-90 contrast-110"
                   sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 112px"

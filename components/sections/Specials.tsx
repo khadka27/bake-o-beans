@@ -106,10 +106,10 @@ export default function Specials() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-coffee-900 mb-2">
-            OUR SPECIALS
+            BEST PICK FROM THE BEST CAFÉ IN POKHARA
           </h2>
           <p className="text-clay-600 font-medium text-xs sm:text-sm uppercase tracking-wider mb-4">
-            Discover our featured drinks and bakery favorites
+            Serving the Best Coffee in Pokhara Every Day
           </p>
           <p className="text-sm sm:text-base md:text-lg text-coffee-700/80 max-w-2xl mx-auto leading-relaxed">
             Explore the most loved creations at Bake O Beans Café, Simalchaur,
@@ -142,7 +142,7 @@ export default function Specials() {
               >
                 <Image
                   src={special.image}
-                  alt={special.name}
+                  alt={`${special.name} - Specialty from Bake O Beans, the Best Café in Pokhara`}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, 224px"

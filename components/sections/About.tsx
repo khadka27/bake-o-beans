@@ -20,7 +20,7 @@ export default function About() {
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.pexels.com/photos/1002740/pexels-photo-1002740.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Coffee brewing"
+          alt="Premium coffee brewing at Bake O Beans - Best Coffee in Pokhara"
           fill
           className="object-cover"
           sizes="100vw"
@@ -50,20 +50,21 @@ export default function About() {
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-paper-200 leading-relaxed mb-6 sm:mb-8 max-w-xl">
               At Bake O Beans Café, we believe coffee is more than just a
-              drink-it’s a moment to pause, connect, and enjoy. Located in
-              Simalchaur, Pokhara-8, our café is a cozy space where quality
-              coffee meets warm hospitality.
+              drink-it’s a moment to pause, connect, and enjoy. Known as one of
+              the spaces for the <strong>best coffee in Pokhara</strong>, our
+              café in Simalchaur-8 is a cozy haven where premium quality meets
+              local warmth.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-paper-300 leading-relaxed mb-6 sm:mb-8 max-w-lg">
               We carefully select premium coffee beans and combine them with
-              artisan brewing techniques to create rich, flavorful cups that
-              keep you coming back. From freshly brewed coffee to oven-fresh
-              pastries, every item is crafted with passion and attention to
+              artisan brewing techniques. Our mission is to remain the{" "}
+              <strong>best café in Pokhara</strong> by serving rich, flavorful
+              cups and oven-fresh pastries crafted with passion and attention to
               detail.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-paper-300 leading-relaxed mb-8 sm:mb-10 max-w-lg italic">
-              Join us at Bake O Beans Café and experience the true essence of
-              Pokhara’s growing coffee culture-one cup at a time.
+              Join us at Bake O Beans Café and experience why locals and
+              travelers alike call us the best coffee spot in the city.
             </p>
 
             <motion.div

@@ -10,29 +10,29 @@ const heroSlides = [
   {
     id: 1,
     image: "/images/hero.webp",
-    title: "Bake O Beans Café – Best Coffee & Bakery in Simalchaur, Pokhara",
-    subtitle: "Warm & Premium",
+    title: "Bake O Beans Café – Best Coffee & Best Café in Pokhara",
+    subtitle: "Best Café in Pokhara",
     description:
-      "Experience handcrafted coffee, freshly baked pastries, and cozy vibes at Bake O Beans Café in Simalchaur, Pokhara-8. From rich espresso to delicious desserts, every cup and bite is made with passion.",
+      "Experience the best coffee in Pokhara and freshly baked pastries at Bake O Beans Café in Simalchaur. Every cup is brewed to perfection in our cozy atmosphere.",
     cta: "Explore Our Menu",
   },
   {
     id: 2,
     image: "/images/hero2.webp",
-    title: "Where Every Cup Tells a Story in Pokhara",
-    subtitle: "Experience & Storytelling",
+    title: "The Ultimate Coffee Destination in Simalchaur",
+    subtitle: "Best Coffee in Pokhara",
     description:
-      "Located in Simalchaur, Pokhara-8, Bake O Beans Café is your go-to destination for premium coffee, fresh bakery items, and a relaxing café experience. Perfect for work, catch-ups, or quiet coffee moments.",
+      "Bake O Beans is widely recognized as the best cafe in Pokhara for premium coffee, fresh bakery items, and a world-class relaxing experience. Perfect for work or catch-ups.",
     cta: "Visit Bake O Beans Café",
   },
   {
     id: 3,
     image: "/images/hero3.webp",
-    title: "Your Neighborhood Café in Simalchaur, Pokhara-8",
-    subtitle: "Modern & Local",
+    title: "Handcrafted Flavors in Simalchaur, Pokhara",
+    subtitle: "Premium Coffee Heaven",
     description:
-      "Bake O Beans Café serves freshly brewed coffee, handcrafted drinks, and bakery delights in the heart of Simalchaur, Pokhara. Enjoy quality flavors, friendly service, and a cozy space made for coffee lovers.",
-    cta: "Discover Coffee Heaven",
+      "Visit Bake O Beans Café for the best café experience in Pokhara. Enjoy our freshly brewed specialty coffee and bakery delights made with local love and global quality.",
+    cta: "Discover More",
   },
 ];
 

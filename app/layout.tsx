@@ -21,11 +21,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bakeobeans.com"),
-  title: "Bake O Beans Café | Best Coffee & Bakery in Simalchaur, Pokhara-8",
+  title: "Bake O Beans Café | Best Coffee & Best Café in Pokhara, Simalchaur",
   description:
-    "Bake O Beans Café in Simalchaur, Pokhara-8 offers freshly brewed coffee, handcrafted drinks, and baked pastries in a cozy café setting. The best coffee shop near you for the perfect brew in Pokhara.",
+    "Bake O Beans Café is the best coffee shop and best café in Pokhara, Simalchaur. Enjoy freshly brewed premium coffee, artisan bakery items, and a cozy atmosphere. Visit us for the perfect cup today!",
   keywords:
-    "Bake O Beans Café, coffee shop in Pokhara, café in Simalchaur, bakery in Pokhara, best coffee Pokhara, Pokhara café, coffee and bakery Nepal, coffee near me Pokhara, bakery near me Simalchaur",
+    "Bake O Beans Café, best coffee in Pokhara, best café in Pokhara, café in Simalchaur, bakery in Pokhara, coffee and bakery Nepal, coffee shop Pokhara, Pokhara café vibes, best place for coffee Pokhara",
   authors: [{ name: "Bake O Beans Café" }],
   icons: {
     icon: [
