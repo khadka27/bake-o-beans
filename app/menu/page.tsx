@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     title: "Our Full Menu | Bake O Beans Café Simalchaur, Pokhara",
     description: "Check out our latest coffee and bakery offerings in Pokhara.",
   },
+  alternates: {
+    canonical: "/menu",
+  },
 };
 
 export default function MenuPage() {

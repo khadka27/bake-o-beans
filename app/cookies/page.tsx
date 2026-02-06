@@ -1,5 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy | Bake O Beans Café",
+  description:
+    "Learn about how Bake O Beans Café uses cookies and how you can manage your preferences.",
+  alternates: {
+    canonical: "/cookies",
+  },
+};
 
 export default function CookiesPage() {
   return (

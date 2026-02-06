@@ -1,5 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Use | Bake O Beans Café",
+  description:
+    "Review the terms and conditions for using the Bake O Beans Café website and services.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
 
 export default function TermsPage() {
   return (

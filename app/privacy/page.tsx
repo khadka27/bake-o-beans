@@ -1,5 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Bake O Beans Café",
+  description:
+    "Read our privacy policy to understand how we collect, use, and protect your information at Bake O Beans Café.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
 
 export default function PrivacyPage() {
   return (

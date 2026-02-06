@@ -58,6 +58,9 @@ export const metadata: Metadata = {
     images: ["/images/logo.png"],
   },
   manifest: "/site.webmanifest",
+  alternates: {
+    canonical: "./",
+  },
 };
 
 export default function RootLayout({

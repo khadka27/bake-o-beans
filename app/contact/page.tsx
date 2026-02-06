@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     "Get in touch with Bake O Beans Café in Simalchaur, Pokhara. Find our location, call us for orders, or check our opening hours. We're the best coffee shop near you in Pokhara.",
   keywords:
     "contact Bake O Beans, café location Pokhara, coffee shop phone number Pokhara, Simalchaur café address, café opening hours Pokhara",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {
