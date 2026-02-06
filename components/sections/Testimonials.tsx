@@ -2,13 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { useRef, useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Testimonials() {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
   const testimonials = [
@@ -119,72 +116,29 @@ export default function Testimonials() {
   // Duplicate testimonials for infinite scroll effect
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationFrameId: number;
-
-    const scroll = () => {
-      if (!isPaused && scrollContainer) {
-        // Continue from current scroll position
-        scrollContainer.scrollLeft += 0.5; // Scroll speed
-
-        // Reset scroll position for infinite loop
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          scrollContainer.scrollLeft = 0;
-        }
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [isPaused]);
-
   return (
     <section
       id="testimonials"
       className="py-14 sm:py-20 md:py-24 relative overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0" suppressHydrationWarning>
+      <div className="absolute inset-0 z-0 text-[0]">
         <Image
           src="/images/h1-bacground-img-1.jpg.webp"
           alt="Testimonials background"
           fill
           className="object-cover"
           sizes="100vw"
-          quality={70}
+          quality={60}
         />
-        <div
-          className="absolute inset-0 bg-paper-50/90 dark:bg-coffee-900/90"
-          suppressHydrationWarning
-        />
+        <div className="absolute inset-0 bg-paper-50/90 dark:bg-coffee-900/90" />
       </div>
 
-      <div
-        className="relative z-10 content-max px-5 sm:px-6 lg:px-8 mb-8 sm:mb-10 md:mb-12"
-        suppressHydrationWarning
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block text-clay-600 dark:text-clay-400 font-medium text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3"
-          >
+      <div className="relative z-10 content-max px-5 sm:px-6 lg:px-8 mb-8 sm:mb-10 md:mb-12">
+        <div className="text-center">
+          <span className="inline-block text-clay-600 dark:text-clay-400 font-medium text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3">
             Testimonials
-          </motion.span>
+          </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold mb-3 sm:mb-4 text-coffee-900 dark:text-paper-100">
             What Our Customers Say
           </h2>
@@ -192,96 +146,64 @@ export default function Testimonials() {
             Join hundreds of satisfied customers who love our coffee and
             pastries
           </p>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Auto-scrolling testimonials */}
+      {/* Auto-scrolling testimonials wrapper */}
       <div
-        ref={scrollRef}
-        className="flex gap-4 sm:gap-6 overflow-x-hidden px-4 sm:px-0"
+        className="flex overflow-hidden relative"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
-        style={{ scrollBehavior: "auto" }}
-        suppressHydrationWarning
       >
-        {duplicatedTestimonials.map((testimonial, index) => (
-          <motion.div
-            key={`${testimonial.id}-${index}`}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: (index % testimonials.length) * 0.05,
-              duration: 0.5,
-            }}
-            className="shrink-0 w-72 sm:w-80 md:w-96"
-          >
-            <Card className="h-full hover:shadow-xl active:shadow-lg transition-all duration-300 border-2 border-clay-300/50 dark:border-clay-600/50 hover:border-clay-400 dark:hover:border-clay-500 bg-white dark:bg-coffee-900 group">
-              <CardContent className="p-5 sm:p-6 md:p-8 flex flex-col h-full">
-                <div
-                  className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4"
-                  suppressHydrationWarning
-                >
-                  <motion.div
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Avatar className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-clay-400 dark:border-clay-500 shadow-lg group-hover:border-clay-500 dark:group-hover:border-clay-400 transition-colors">
-                      <AvatarFallback className="bg-clay-200 dark:bg-clay-800 text-clay-800 dark:text-clay-200 font-semibold text-sm sm:text-base md:text-lg">
-                        {testimonial.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </AvatarFallback>
-                    </Avatar>
-                  </motion.div>
-                  <div className="flex-1 min-w-0" suppressHydrationWarning>
-                    <p className="font-bold text-base sm:text-lg md:text-xl mb-1 sm:mb-2 text-coffee-900 dark:text-paper-100 drop-shadow-sm truncate">
+        <div
+          className="flex w-max gap-4 sm:gap-6 items-stretch animate-infinite-scroll py-8"
+          style={{
+            animationPlayState: isPaused ? "paused" : "running",
+          }}
+        >
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={`${testimonial.id}-${index}`}
+              className="shrink-0 w-[280px] sm:w-[320px] md:w-[380px] flex"
+            >
+              <div className="w-full bg-white dark:bg-coffee-900/60 backdrop-blur-md rounded-2xl border-2 border-clay-300/30 dark:border-clay-700 p-6 sm:p-8 flex flex-col hover:border-clay-400 dark:hover:border-clay-500 transition-all duration-300 group shadow-lg">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-clay-100 dark:bg-clay-800 border-2 border-clay-400 flex items-center justify-center text-clay-700 dark:text-clay-200 font-bold text-lg">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-bold text-base sm:text-lg text-coffee-900 dark:text-paper-100 truncate mb-1">
                       {testimonial.name}
                     </p>
-                    <div
-                      className="flex gap-0.5 sm:gap-1"
-                      suppressHydrationWarning
-                    >
+                    <div className="flex gap-0.5">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400"
+                          className="w-3.5 h-3.5 fill-amber-400 text-amber-400"
                         />
                       ))}
                     </div>
                   </div>
                 </div>
-
-                <div className="relative flex-grow" suppressHydrationWarning>
-                  <svg
-                    className="absolute -top-1 -left-1 sm:-top-2 sm:-left-2 w-6 h-6 sm:w-8 sm:h-8 text-clay-200 dark:text-clay-800 opacity-50"
-                    fill="currentColor"
-                    viewBox="0 0 32 32"
-                  >
-                    <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm16 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
-                  </svg>
-                  <p className="text-coffee-700 dark:text-paper-300 leading-relaxed text-xs sm:text-sm md:text-base relative z-10 italic">
-                    {testimonial.text}
+                <div className="relative">
+                  <p className="text-coffee-700 dark:text-paper-300 leading-relaxed text-sm sm:text-base italic group-hover:text-coffee-900 dark:group-hover:text-paper-100 transition-colors">
+                    "{testimonial.text}"
                   </p>
                 </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Touch hint - Mobile only */}
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.8 }}
-        className="sm:hidden text-center text-xs text-muted-foreground mt-6 px-4"
+        className="text-center text-xs text-muted-foreground mt-4 px-4"
       >
-        Touch to pause scrolling
+        Scroll paused on hover
       </motion.p>
     </section>
   );

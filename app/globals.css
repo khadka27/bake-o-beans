@@ -57,6 +57,17 @@
   --radius: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
+
+  --animate-infinite-scroll: infinite-scroll 80s linear infinite;
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @layer base {

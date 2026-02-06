@@ -56,6 +56,26 @@ export default function Specials() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
     <section
       id="specials"
@@ -69,17 +89,20 @@ export default function Specials() {
           alt="Specials background"
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 100vw"
-          quality={65}
+          sizes="100vw"
+          quality={60}
         />
         <div className="absolute inset-0 bg-paper-50/50" />
       </div>
 
       <div className="relative z-10 content-max px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-coffee-900 mb-2">
@@ -97,18 +120,16 @@ export default function Specials() {
         </motion.div>
 
         {/* Circular Dishes Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-10">
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-10"
+        >
           {specials.map((special, index) => (
             <motion.div
               key={special.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.6,
-                type: "spring",
-                stiffness: 200,
-              }}
+              variants={itemVariants}
               className="flex flex-col items-center"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -121,7 +142,7 @@ export default function Specials() {
               >
                 <Image
                   src={special.image}
-                  alt={`${special.name} at Bake O Beans Café - Simalchaur, Pokhara`}
+                  alt={special.name}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, 224px"
@@ -142,32 +163,17 @@ export default function Specials() {
               </motion.div>
 
               {/* Name with Animation */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={
-                  hoveredIndex === index
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0.7, y: 0 }
-                }
-                transition={{ duration: 0.3 }}
-                className="text-center"
-              >
-                <motion.h3
-                  animate={
-                    hoveredIndex === index ? { scale: 1.05 } : { scale: 1 }
-                  }
-                  transition={{ duration: 0.3 }}
-                  className="text-sm sm:text-base md:text-lg font-sans font-bold text-coffee-900 uppercase tracking-wide"
-                >
+              <div className="text-center">
+                <h3 className="text-sm sm:text-base md:text-lg font-sans font-bold text-coffee-900 uppercase tracking-wide">
                   {special.name}
-                </motion.h3>
+                </h3>
                 <p className="hidden sm:block text-[10px] sm:text-xs text-coffee-700 mt-1 line-clamp-2 px-2">
                   {special.description}
                 </p>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

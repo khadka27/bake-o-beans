@@ -1,20 +1,39 @@
+import dynamic from "next/dynamic";
+import Hero from "@/components/sections/Hero";
+import Categories from "@/components/sections/Categories";
 
-import Hero from '@/components/sections/Hero';
-import Categories from '@/components/sections/Categories';
-import About from '@/components/sections/About';
-import Menu from '@/components/sections/Menu';
-import Specials from '@/components/sections/Specials';
-import WhyChooseUs from '@/components/sections/WhyChooseUs';
-import Gallery from '@/components/sections/Gallery';
-import Testimonials from '@/components/sections/Testimonials';
-import Newsletter from '@/components/sections/Newsletter';
-import OpeningHours from '@/components/sections/OpeningHours';
-import Contact from '@/components/sections/Contact';
+// Lazy load sections below the fold
+const About = dynamic(() => import("@/components/sections/About"), {
+  ssr: true,
+});
+const Menu = dynamic(() => import("@/components/sections/Menu"), { ssr: true });
+const Specials = dynamic(() => import("@/components/sections/Specials"), {
+  ssr: true,
+});
+const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"), {
+  ssr: true,
+});
+const Gallery = dynamic(() => import("@/components/sections/Gallery"), {
+  ssr: true,
+});
+const Testimonials = dynamic(
+  () => import("@/components/sections/Testimonials"),
+  { ssr: true },
+);
+const Newsletter = dynamic(() => import("@/components/sections/Newsletter"), {
+  ssr: true,
+});
+const OpeningHours = dynamic(
+  () => import("@/components/sections/OpeningHours"),
+  { ssr: true },
+);
+const Contact = dynamic(() => import("@/components/sections/Contact"), {
+  ssr: true,
+});
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-
       <Hero />
       <Categories />
       <About />
@@ -26,7 +45,6 @@ export default function Home() {
       <Newsletter />
       <OpeningHours />
       <Contact />
-
     </main>
   );
 }

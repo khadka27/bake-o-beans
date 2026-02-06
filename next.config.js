@@ -12,8 +12,7 @@ const nextConfig = {
       },
     ],
   },
-  // Ensure that we use the latest swc compiler if available
-  swcMinify: true,
+
 };
 
 module.exports = nextConfig;
